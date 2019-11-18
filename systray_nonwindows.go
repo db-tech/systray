@@ -31,12 +31,12 @@ func SetIcon(iconBytes []byte) {
 	C.setIcon(cstr, (C.int)(len(iconBytes)))
 }
 
-// SetTitle sets the systray title, only available on Mac.
+// SetTitle sets the systray Title, only available on Mac.
 func SetTitle(title string) {
 	C.setTitle(C.CString(title))
 }
 
-// SetTooltip sets the systray tooltip to display on mouse hover of the tray icon,
+// SetTooltip sets the systray Tooltip to display on mouse hover of the tray icon,
 // only available on Mac and Windows.
 func SetTooltip(tooltip string) {
 	C.setTooltip(C.CString(tooltip))
@@ -44,17 +44,17 @@ func SetTooltip(tooltip string) {
 
 func addOrUpdateMenuItem(item *MenuItem) {
 	var disabled C.short
-	if item.disabled {
+	if item.Disabled {
 		disabled = 1
 	}
 	var checked C.short
-	if item.checked {
+	if item.Checked {
 		checked = 1
 	}
 	C.add_or_update_menu_item(
 		C.int(item.id),
-		C.CString(item.title),
-		C.CString(item.tooltip),
+		C.CString(item.Title),
+		C.CString(item.Tooltip),
 		disabled,
 		checked,
 	)

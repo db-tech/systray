@@ -215,7 +215,7 @@ func (t *winTray) setIcon(src string) error {
 	return t.nid.modify()
 }
 
-// Sets tooltip on icon.
+// Sets Tooltip on icon.
 // Shell_NotifyIcon: https://msdn.microsoft.com/en-us/library/windows/desktop/bb762159(v=vs.85).aspx
 func (t *winTray) setTooltip(src string) error {
 	const NIF_TIP = 0x00000004
@@ -673,7 +673,7 @@ func SetIcon(iconBytes []byte) {
 	}
 }
 
-// SetTitle sets the systray title, only available on Mac.
+// SetTitle sets the systray Title, only available on Mac.
 func SetTitle(title string) {
 	// do nothing
 }
@@ -683,17 +683,17 @@ func (item *MenuItem) SetIcon(iconBytes []byte) {
 	// do nothing
 }
 
-// SetTooltip sets the systray tooltip to display on mouse hover of the tray icon,
+// SetTooltip sets the systray Tooltip to display on mouse hover of the tray icon,
 // only available on Mac and Windows.
 func SetTooltip(tooltip string) {
 	if err := wt.setTooltip(tooltip); err != nil {
-		log.Errorf("Unable to set tooltip: %v", err)
+		log.Errorf("Unable to set Tooltip: %v", err)
 		return
 	}
 }
 
 func addOrUpdateMenuItem(item *MenuItem) {
-	err := wt.addOrUpdateMenuItem(item.id, item.title, item.disabled, item.checked)
+	err := wt.addOrUpdateMenuItem(item.id, item.Title, item.Disabled, item.Checked)
 	if err != nil {
 		log.Errorf("Unable to addOrUpdateMenuItem: %v", err)
 		return

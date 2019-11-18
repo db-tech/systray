@@ -38,7 +38,7 @@ func TestBaseWindowsTray(t *testing.T) {
 		t.Errorf("SetIcon failed: %s", err)
 	}
 
-	if err := wt.setTooltip("Cyrillic tooltip тест:)"); err != nil {
+	if err := wt.setTooltip("Cyrillic Tooltip тест:)"); err != nil {
 		t.Errorf("SetIcon failed: %s", err)
 	}
 
@@ -47,7 +47,7 @@ func TestBaseWindowsTray(t *testing.T) {
 	if err != nil {
 		t.Errorf("mergeMenuItem failed: %s", err)
 	}
-	err = wt.addOrUpdateMenuItem(atomic.AddInt32(&id, 1), "Simple disabled", true, false)
+	err = wt.addOrUpdateMenuItem(atomic.AddInt32(&id, 1), "Simple Disabled", true, false)
 	if err != nil {
 		t.Errorf("mergeMenuItem failed: %s", err)
 	}
@@ -55,11 +55,11 @@ func TestBaseWindowsTray(t *testing.T) {
 	if err != nil {
 		t.Errorf("addSeparatorMenuItem failed: %s", err)
 	}
-	err = wt.addOrUpdateMenuItem(atomic.AddInt32(&id, 1), "Simple checked enabled", false, true)
+	err = wt.addOrUpdateMenuItem(atomic.AddInt32(&id, 1), "Simple Checked enabled", false, true)
 	if err != nil {
 		t.Errorf("mergeMenuItem failed: %s", err)
 	}
-	err = wt.addOrUpdateMenuItem(atomic.AddInt32(&id, 1), "Simple checked disabled", true, true)
+	err = wt.addOrUpdateMenuItem(atomic.AddInt32(&id, 1), "Simple Checked Disabled", true, true)
 	if err != nil {
 		t.Errorf("mergeMenuItem failed: %s", err)
 	}
@@ -74,7 +74,7 @@ func TestBaseWindowsTray(t *testing.T) {
 		t.Error("hideMenuItem failed: must return error on invalid item id")
 	}
 
-	err = wt.addOrUpdateMenuItem(2, "Simple disabled update", true, false)
+	err = wt.addOrUpdateMenuItem(2, "Simple Disabled update", true, false)
 	if err != nil {
 		t.Errorf("mergeMenuItem failed: %s", err)
 	}
@@ -110,7 +110,7 @@ func TestWindowsRun(t *testing.T) {
 			t.Fatalf("Can't load icon file: %v", err)
 		}
 		SetIcon(b)
-		SetTitle("Test title с кириллицей")
+		SetTitle("Test Title с кириллицей")
 
 		bSomeBtn := AddMenuItem("Йа кнопко", "")
 		bSomeBtn.Check()
